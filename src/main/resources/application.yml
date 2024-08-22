@@ -8,7 +8,11 @@ spring:
     password: ${DB_PASSWORD:admin}
   jpa:
     hibernate:
+<<<<<<< Updated upstream
       ddl-auto: update
+=======
+      ddl-auto: create-drop
+>>>>>>> Stashed changes
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect

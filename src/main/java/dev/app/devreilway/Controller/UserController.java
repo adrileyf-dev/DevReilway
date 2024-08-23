@@ -1,24 +1,32 @@
 package dev.app.devreilway.Controller;
 
-import dev.app.devreilway.Repository.UserRepository;
 import dev.app.devreilway.model.User;
+import dev.app.devreilway.service.UserService;
+
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.util.List;
+import java.net.URI;
 
-@AllArgsConstructor
 @RestController
-@RequestMapping("/users")
+@AllArgsConstructor
+@RequestMapping("/Users")
 public class UserController {
-   public  final UserRepository userRepository;
-    @PostMapping("/create")
-      public User save(@RequestBody User user){
-       userRepository.save(user);
-       return  user;
+    private  final UserService userService;
+    @GetMapping("/{id}")
+    public ResponseEntity<User> findById(@PathVariable Long id){
+        var user = userService.findById(id);
+        return  ResponseEntity.ok(user);
     }
-    @GetMapping("/all")
-       public List<User> list(){
-       return  userRepository.findAll();
+    @PostMapping("/create")
+    public  ResponseEntity<User> create(@RequestBody  User user){
+        var userCreate = userService.create(user);
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("{/id}")
+                .buildAndExpand(userCreate.getId())
+                .toUri();
+        return  ResponseEntity.created(location).body(user);
     }
 }

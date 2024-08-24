@@ -14,7 +14,9 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="DevReilway" />
+        </datasource-mapping>
         <naming-strategy-map />
       </configuration>
     </facet>
@@ -60,7 +62,6 @@
     <orderEntry type="library" name="Maven: io.micrometer:micrometer-commons:1.13.2" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:6.1.11" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:6.1.11" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.h2database:h2:2.2.224" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.postgresql:postgresql:42.7.3" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.checkerframework:checker-qual:3.42.0" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.34" level="project" />

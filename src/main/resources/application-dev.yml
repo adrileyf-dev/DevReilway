@@ -3,9 +3,9 @@ spring:
     name: DevReilway
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://${PGHOST}:${PGPORT:5432}/${PGDATABASE:railway}
-    username: ${PGUSER:postgres}
-    password: ${PGPASSWORD:RKwRJRiJzfAZmBZXjuOYJthikjtpLRDh}
+    url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}
+    username: ${PGUSER}
+    password: ${PGPASSWORD}
   jpa:
     hibernate:
       ddl-auto: create-drop
